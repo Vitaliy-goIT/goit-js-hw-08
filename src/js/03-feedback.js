@@ -18,6 +18,7 @@ function onSubmitForm(evt) {
   console.log(formData);
   evt.currentTarget.reset();
   localStorage.removeItem(LS_KEY);
+  formData = {};
 }
 
 function onInputsValues(e) {
