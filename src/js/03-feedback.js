@@ -5,7 +5,7 @@ const input = document.querySelector('input');
 const textArea = document.querySelector('textarea');
 
 const LS_KEY = 'feedback-form-state';
-const formData = {};
+let formData = {};
 
 form.addEventListener('submit', onSubmitForm);
 
@@ -34,7 +34,9 @@ function populateFormsFields() {
 
   if (saveValues) {
     const { email, message } = JSON.parse(saveValues);
+    formData = { email, message };
+
     input.value = email;
-    textArea.textContent = message;
+    textArea.value = message;
   }
 }
