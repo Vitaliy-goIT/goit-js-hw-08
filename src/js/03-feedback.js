@@ -37,7 +37,18 @@ function populateFormsFields() {
     const { email, message } = JSON.parse(saveValues);
     formData = { email, message };
 
-    input.value = email;
-    textArea.value = message;
+    if (email === undefined) {
+      input.value = '';
+    } else {
+      input.value = email;
+    }
+    // input.value = email;
+
+    if (message === undefined) {
+      textArea.value = '';
+    } else {
+      textArea.value = message;
+    }
+    // textArea.value = message;
   }
 }
