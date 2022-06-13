@@ -34,21 +34,18 @@ function populateFormsFields() {
   const saveValues = localStorage.getItem(LS_KEY);
 
   if (saveValues) {
-    const { email, message } = JSON.parse(saveValues);
-    formData = { email, message };
+    const valuesObject = JSON.parse(saveValues);
+    formData = valuesObject;
+    // console.log(formData);
 
-    if (email === undefined) {
-      input.value = '';
-    } else {
-      input.value = email;
+    const entries = Object.entries(formData);
+    for (const key of entries) {
+      if (input.name === key[0]) {
+        input.value = key[1];
+      }
+      if (textArea.name === key[0]) {
+        textArea.value = key[1];
+      }
     }
-    // input.value = email;
-
-    if (message === undefined) {
-      textArea.value = '';
-    } else {
-      textArea.value = message;
-    }
-    // textArea.value = message;
   }
 }
